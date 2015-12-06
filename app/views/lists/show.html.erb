@@ -1,0 +1,18 @@
+<h1>
+	<%= @list.name %>
+</h1>
+<hr />
+<!-- This is where a list is selected and the items display after being added to list-->
+<% if @items.any? %>
+  <ol>
+	  <% @items.each do |item| %>
+		  <li><%= item.name %></li>
+	  <% end %>
+  </ol>
+<% else %>
+	<h3>No items in the list, please create one</h3>
+<% end %>
+<%= link_to 'Create Item', new_item_path(list_id: @list.id) %>
+<br />
+<%= link_to 'Back to Lists', lists_path %>
+

@@ -1,0 +1,18 @@
+<h1>Lists</h1>
+<br />
+<% if @lists.any? %>
+<ul>
+	<% @lists.each do |list| %>
+	<li>
+		<%= link_to "#{list.name}", list_path(list) %>
+
+		<%= button_to 'Edit List', edit_list_path(list), method: :get %>
+		<%= button_to "Delete", list_path(list), method: :delete, data: {confirm: 'Do you really want to delete this list?'} %>
+	</li>
+	<% end %>
+</ul>
+<% else %>
+	<h3>No lists to show</h3>
+<% end %>
+<hr />
+<%= link_to 'New List', new_list_path %>
