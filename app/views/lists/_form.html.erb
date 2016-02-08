@@ -1,16 +1,24 @@
-<!-- This is an if/else statement that if no name was put it will return to create a new list-->
-<% if @list.errors.any? %>
-	<h4>Errors:</h4>
-	<p><%= @list.errors.messages.values.join(', ') %></p>
-	<hr />
-<% end %>
-<!-- This is now a Partial form that is linked to other files -->
-<!-- Rails Helpers -->
-<%= form_for @list do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<br />
-	<%= f.submit 'Create New List' %>
-	<hr />
-	<%= link_to 'Back to Lists', lists_path %>
-<% end %>
+<div class="card">
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+			<!-- This is an if/else statement that if no name was put it will return to create a new list-->
+			<% if @list.errors.any? %>
+				<h4>Errors:</h4>
+				<p><%= @list.errors.messages.values.join(', ') %></p>
+				<hr />
+			<% end %>
+			<!-- This is now a Partial form that is linked to other files -->
+			<!-- Rails Helpers -->
+			<div class="card-panel">
+				<%= form_for @list do |f| %>
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+					<br />
+					<%= f.submit 'Create New List' %>
+					<hr />
+					<%= link_to 'Back to Lists', lists_path %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
